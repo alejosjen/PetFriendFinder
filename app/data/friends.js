@@ -1,6 +1,7 @@
 // Data
 // ===========================================================
-var pug = {
+var data = [
+  {
     "name": "Pug",
     "photo": "http",
     "scores": [
@@ -15,7 +16,24 @@ var pug = {
         9,
         10,
     ]
-};
+},
+{
+  "name": "Dachsun",
+  "photo": "http",
+  "scores": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+  ]
+},
+];
   
   var darthmaul = {
     name: "Darth Maul",

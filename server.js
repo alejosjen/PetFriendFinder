@@ -10,9 +10,9 @@ var PORT = 3000;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.static(__dirname + "/public"));
 app.use(htmlRoutes);
 app.use(apiRoutes);
-
 
 //-----Listening------
 app.listen(PORT, function() {

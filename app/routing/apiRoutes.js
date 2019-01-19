@@ -8,47 +8,37 @@ router.get("/api/petfriends", function (req, res) {
 });
 //POST route to /api/friends, post survey results, handle compatibility logic
 router.post("/api/results", function (req, res) {
-  // req.body.params
   //variable as object to hold current best PetFriend
-  var bestPetFriend = {
-    "name": "",
-    "photo": "",
-    "scores": 0
-  };
+  var bestPetFriend;
 
   // store a single pet score
-  var best;
+  var bestPetTotal = 1000;
+  //
   var currentPetTotal;
   // store userInput score
   var userInput = req.body
+  userInput.scores = userInput.scores.map(score => parseInt(score));
   //Loop through PetFriends
   for (j = 0; j < PetFriends.length; j++) {
+    //
     currentPetTotal = 0
     //Looping through their scores
     for (i = 0; i < PetFriends[j].scores.length; i++) {
       //Assigning their scores to be stored for comparison
-      
-      currentPetTotal += Math.abs(userInput.scores[i] - PetFriends[j].scores[i])
-      if (userInput <= currentPetTotal) {
-        bestPetFriend = {
-          name: PetFriends[j].name,
-          photo: PetFriends[j].photo,
-          scores: PetFriends[j].scores
-        }
-        res.json(bestPetFriend);
-      }
+      currentPetTotal += Math.abs(userInput.scores[i] - PetFriends[j].scores[i]);
+    }
+    //Compare current friend total against best
+    if (currentPetTotal <= bestPetTotal) {
+      bestPetFriend = bestPetFriend[j];
+      bestPetTotal = currentPetTotal;
     }
   };
+  //Add new user
+  PetFriends.push(userInput);
+  //Send info back
+  res.json(bestPetFriend);
 
-
-  console.log(best)
-  // if (userInput <= bestPetFriendScore) {
-
-  // }
-  //1st main loop, go through PetFriends, loop scores, add scores, store the score in the variable, 
-  //if statement to compare stored score of user to the PetFriends with <= best matched score
-  //2nd main loop to score user's input 
-
+  console.log(bestPetFriend);
 })
-//use math.abs
+
 module.exports = router;

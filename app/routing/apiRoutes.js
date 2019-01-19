@@ -17,14 +17,18 @@ router.post("/api/results", function (req, res) {
   };
 
   // store a single pet score
+  var best;
   var currentPetTotal;
-
+  // store userInput score
+  var userInput = req.body
   //Loop through PetFriends
   for (j = 0; j < PetFriends.length; j++) {
+    currentPetTotal = 0
     //Looping through their scores
-    for (i = 0; i < PetFriends.scores.length; i++) {
+    for (i = 0; i < PetFriends[j].scores.length; i++) {
       //Assigning their scores to be stored for comparison
-      currentPetTotal += PetFriends.scores[i];
+      
+      currentPetTotal += Math.abs(userInput.scores[i] - PetFriends[j].scores[i])
       if (userInput <= currentPetTotal) {
         bestPetFriend = {
           name: PetFriends[j].name,
@@ -37,7 +41,7 @@ router.post("/api/results", function (req, res) {
   };
 
 
-  console.log(currentPetTotal)
+  console.log(best)
   // if (userInput <= bestPetFriendScore) {
 
   // }

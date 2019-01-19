@@ -19,6 +19,7 @@
         body {
             background-color: #036146;
             color: #FFF;
+            font-family: Georgia, 'Times New Roman', Times, serif;
         }
     </style>
 </head>
@@ -35,9 +36,9 @@
                             PetFriends Results<i class="fas fa-palette"></i> <i class="fas fa-headphones-alt"></i></h4>
                     </div>
                     <div class="modal-body">
-                        <p>  Results
-                        </p>
-                        <p>  </p>
+                        <p> Your Closest Matched PetFriend!</p>
+                        <div id="petNameMatch"> </div>
+                        <img id="petPhotoMatch" class="img fluid" src=""> </img>
                         <p> Feel free to try again.</p>
                         <p> This project is brought to you by The Funtastic 4 Team. Check out our
                             <a href="https://github.com/DanRSolomon/project-1" target="_blank">GitHub</a> page if you
@@ -55,14 +56,23 @@
         <!-- End Modal -->
         <h1>PetFriends Finder</h1>
         <h3>Let's find a friend for your pet!</h3>
-        <h5>Fill out the survey according to your needs.
-            <br>
-            Rating from 1(not happening) to 5(yes!), how would your pet react to these doggy statements?
+        <h5>Fill out the survey according to your pet's behavior and personality.
         </h5>
         <form>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="petName">Enter your pet's name.</label>
+                    <input type="text" class="form-control" id="petName" placeholder="Pet Name">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="petPhoto">URL of your pet's photo</label>
+                    <input type="email" class="form-control" id="petPhoto" placeholder="Copy and paste the link here.">
+                </div>
+            </div>
             <div class="form-group">
                 <label for="1">1. High Energy: Let's play ALL the time! Every minute, right now!</label>
                 <select class="form-control" id="Q1">
+                    <option value="" disabled selected>How does your pet rate?</option>
                     <option value="1">1: Does not describe my pet</option>
                     <option value="2">2: Eh...maybe</option>
                     <option value="3">3: Sometimes</option>
@@ -147,8 +157,35 @@
         <!--End of container-->
     </div>
     <script>
-        $('.submit').on('click', function (event) {
-            event.preventDefault();
+        $('.submit').on('click', function () {
+
+            //Collect input
+            var userInput = {
+                name: $('#userName').val().trim(),
+                photo: $('#petPhoto').val().trim(),
+                scores: [
+                    $('#Q1').val().trim(),
+                    $('#Q2').val().trim(),
+                    $('#Q3').val().trim(),
+                    $('#Q4').val().trim(),
+                    $('#Q5').val().trim(),
+                    $('#Q6').val().trim(),
+                    $('#Q7').val().trim(),
+                    $('#Q8').val().trim(),
+                    $('#Q9').val().trim(),
+                    $('#Q10').val().trim()
+                ]
+            };
+
+            $.post('/api/petFriends', userInput)
+                .done(function (data) {
+
+                    $('#petNameMatch').html();
+                    $('#petPhotoMatch').attr("src", );
+
+                    $('#petModal').modal('open');
+                })
+
         });
 
 

@@ -5,10 +5,6 @@
     <meta charset="utf-8" />
     <title>PetFriends Finder</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--CSS Reset-->
-    <!-- <link rel="stylesheet" media="screen" type="text/css" href="assets/css/reset.css" /> -->
-    <!--CSS Styles-->
-    <!-- <link rel="stylesheet" media="screen" type="text/css" href="assets/css/style.css" /> -->
     <!--Bootstrap-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
         crossorigin="anonymous">
@@ -20,6 +16,9 @@
             background-color: #036146;
             color: #FFF;
             font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        .modal-body {
+            color: #000;
         }
     </style>
 </head>
@@ -37,13 +36,10 @@
                     </div>
                     <div class="modal-body">
                         <p> Your Closest Matched PetFriend!</p>
-                        <div id="petNameMatch"> </div>
-                        <img id="petPhotoMatch" class="img fluid" src=""> </img>
-                        <p> Feel free to try again.</p>
-                        <p> This project is brought to you by The Funtastic 4 Team. Check out our
-                            <a href="https://github.com/DanRSolomon/project-1" target="_blank">GitHub</a> page if you
-                            have any comments, suggestions, or issues.
-                        </p>
+                        <div id="petNameMatch">Bart</div>
+                        <img id="petPhotoMatch" class="img-thumbnail" src="https://cdn3-www.dogtime.com/assets/uploads/gallery/basset-hound-dog-breed-pictures/7-puppy.jpg">
+                        </img>
+
                         <!-- Modal footer -->
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -66,7 +62,7 @@
                 </div>
                 <div class="form-group col-md-6">
                     <label for="petPhoto">URL of your pet's photo</label>
-                    <input type="email" class="form-control" id="petPhoto" placeholder="Copy and paste the link here.">
+                    <input type="text" class="form-control" id="petPhoto" placeholder="Copy and paste the link here.">
                 </div>
             </div>
             <div class="form-group">
@@ -81,6 +77,7 @@
                 </select>
                 <label for="2">2. Loves smells: What's this!? and this?!</label>
                 <select class="form-control" id="Q2">
+                    <option value="" disabled selected>How does your pet rate?</option>
                     <option value="1">1: Does not describe my pet</option>
                     <option value="2">2: Eh...maybe</option>
                     <option value="3">3: Sometimes</option>
@@ -89,6 +86,7 @@
                 </select>
                 <label for="3">3. Vocalization: I'm singing! I don't care who can hear me! I'm singing!</label>
                 <select class="form-control" id="Q3">
+                    <option value="" disabled selected>How does your pet rate?</option>
                     <option value="1">1: Does not describe my pet</option>
                     <option value="2">2: Eh...maybe</option>
                     <option value="3">3: Sometimes</option>
@@ -97,6 +95,7 @@
                 </select>
                 <label for="4">4. Food: Lives to eat!</label>
                 <select class="form-control" id="Q4">
+                    <option value="" disabled selected>How does your pet rate?</option>
                     <option value="1">1: Does not describe my pet</option>
                     <option value="2">2: Eh...maybe</option>
                     <option value="3">3: Sometimes</option>
@@ -105,6 +104,7 @@
                 </select>
                 <label for="5">5. Friendliness: Where are my peeps?</label>
                 <select class="form-control" id="Q5">
+                    <option value="" disabled selected>How does your pet rate?</option>
                     <option value="1">1: Does not describe my pet</option>
                     <option value="2">2: Eh...maybe</option>
                     <option value="3">3: Sometimes</option>
@@ -113,6 +113,7 @@
                 </select>
                 <label for="6">6. Bossiness: I'm in charge.</label>
                 <select class="form-control" id="Q6">
+                    <option value="" disabled selected>How does your pet rate?</option>
                     <option value="1">1: Does not describe my pet</option>
                     <option value="2">2: Eh...maybe</option>
                     <option value="3">3: Sometimes</option>
@@ -121,6 +122,7 @@
                 </select>
                 <label for="7">7. Playful: And the chase begins!</label>
                 <select class="form-control" id="Q7">
+                    <option value="" disabled selected>How does your pet rate?</option>
                     <option value="1">1: Does not describe my pet</option>
                     <option value="2">2: Eh...maybe</option>
                     <option value="3">3: Sometimes</option>
@@ -129,6 +131,7 @@
                 </select>
                 <label for="8">8. Shedder: There's hair everywhere.</label>
                 <select class="form-control" id="Q8">
+                    <option value="" disabled selected>How does your pet rate?</option>
                     <option value="1">1: Does not describe my pet</option>
                     <option value="2">2: Eh...maybe</option>
                     <option value="3">3: Sometimes</option>
@@ -137,6 +140,7 @@
                 </select>
                 <label for="9">9. Grooming: Pet me, comb me, detangle me.</label>
                 <select class="form-control" id="Q9">
+                    <option value="" disabled selected>How does your pet rate?</option>
                     <option value="1">1: Does not describe my pet</option>
                     <option value="2">2: Eh...maybe</option>
                     <option value="3">3: Sometimes</option>
@@ -145,6 +149,7 @@
                 </select>
                 <label for="10">10. Outdoors: The grass is greener on the other side.</label>
                 <select class="form-control" id="Q10">
+                    <option value="" disabled selected>How does your pet rate?</option>
                     <option value="1">1: Does not describe my pet</option>
                     <option value="2">2: Eh...maybe</option>
                     <option value="3">3: Sometimes</option>
@@ -152,7 +157,7 @@
                     <option value="5">5: Absolutely all the time</option>
                 </select>
             </div>
-            <button type="submit" class="btn btn-primary submit" data-toggle="modal" data-target="#petModal">Submit</button>
+            <button type="button" class="btn btn-primary submit" data-toggle="modal" data-target="#petModal">Submit</button>
         </form>
         <!--End of container-->
     </div>
@@ -161,30 +166,26 @@
 
             //Collect input
             var userInput = {
-                name: $('#userName').val().trim(),
+                name: $('#petName').val().trim(),
                 photo: $('#petPhoto').val().trim(),
                 scores: [
-                    $('#Q1').val().trim(),
-                    $('#Q2').val().trim(),
-                    $('#Q3').val().trim(),
-                    $('#Q4').val().trim(),
-                    $('#Q5').val().trim(),
-                    $('#Q6').val().trim(),
-                    $('#Q7').val().trim(),
-                    $('#Q8').val().trim(),
-                    $('#Q9').val().trim(),
-                    $('#Q10').val().trim()
+                    $('#Q1').val(),
+                    $('#Q2').val(),
+                    $('#Q3').val(),
+                    $('#Q4').val(),
+                    $('#Q5').val(),
+                    $('#Q6').val(),
+                    $('#Q7').val(),
+                    $('#Q8').val(),
+                    $('#Q9').val(),
+                    $('#Q10').val()
                 ]
             };
 
-            $.post('/api/petFriends', userInput)
-                .done(function (data) {
-
-                    $('#petNameMatch').html();
-                    $('#petPhotoMatch').attr("src", );
-
-                    $('#petModal').modal('open');
-                })
+            $.post('/api/petFriends', userInput, function (data) {
+                $('#petNameMatch').text(data.name);
+                $('#petPhotoMatch').attr("src", data.photo);
+            });
 
         });
 

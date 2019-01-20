@@ -13,14 +13,14 @@ router.post("/api/results", function (req, res) {
 
   // store a single pet score
   var bestPetTotal = 1000;
-  //
+  // store comparison score
   var currentPetTotal;
   // store userInput score
   var userInput = req.body
   userInput.scores = userInput.scores.map(score => parseInt(score));
+
   //Loop through PetFriends
   for (j = 0; j < PetFriends.length; j++) {
-    //
     currentPetTotal = 0
     //Looping through their scores
     for (i = 0; i < PetFriends[j].scores.length; i++) {
@@ -38,7 +38,6 @@ router.post("/api/results", function (req, res) {
   //Send info back
   res.json(bestPetFriend);
 
-  console.log(bestPetFriend);
-})
+});
 
 module.exports = router;

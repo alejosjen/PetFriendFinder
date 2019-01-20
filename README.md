@@ -19,6 +19,10 @@ Installed packages:
 
 Front End - HTML with Bootstrap, Javascript, and CSS styling
 
+Work Still In Progress
+
+The link between submitting the user's input and connecting it to the backend needs more research and debugging.
+
 [Jennifer Alejos Website](https://www.jenalejos.com/)
 
 

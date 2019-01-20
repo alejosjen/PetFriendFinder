@@ -6,7 +6,7 @@ var htmlRoutes = require("./app/routing/htmlRoutes.js");
 
 
 var app = express();
-var PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());

@@ -53,13 +53,17 @@
         </h5>
         <form>
             <div class="form-row">
+                <!-- onsubmit="return false;" -->
                 <div class="form-group col-md-6">
                     <label for="petName">Enter your pet's name.</label>
-                    <input type="text" class="form-control" id="petName" placeholder="Pet Name">
+                    <input type="text" class="form-control" id="petName" placeholder="Pet Name" required>
+                    
                 </div>
                 <div class="form-group col-md-6">
                     <label for="petPhoto">URL of your pet's photo</label>
-                    <input type="text" class="form-control" id="petPhoto" placeholder="Copy and paste the link here.">
+                    <input type="text" class="form-control" id="petPhoto" placeholder="Copy and paste the link here."
+                        required>
+                  
                 </div>
             </div>
             <div class="form-group">
@@ -154,7 +158,7 @@
                     <option value="5">5: Absolutely all the time</option>
                 </select>
             </div>
-            <button type="button" class="btn btn-primary submit" >Submit</button>
+            <button type="button" class="btn btn-primary submit">Submit</button>
         </form>
         <!--End of container-->
     </div>
@@ -168,6 +172,25 @@
 
     <!-- Javascript -->
     <script>
+        // (function () {
+        //     'use strict';
+        //     window.addEventListener('load', function () {
+        //         // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        //         var forms = document.getElementsByClassName('needs-validation');
+        //         // Loop over them and prevent submission
+        //         var validation = Array.prototype.filter.call(forms, function (form) {
+        //             form.addEventListener('submit', function (event) {
+        //                 if (form.checkValidity() === false) {
+        //                     event.preventDefault();
+        //                     event.stopPropagation();
+        //                 }
+        //                 form.classList.add('was-validated');
+        //             }, false);
+        //         });
+        //     }, false);
+        // })();
+
+
         $('.submit').on('click', function () {
 
             //Collect input

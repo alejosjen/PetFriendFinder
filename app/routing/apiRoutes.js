@@ -4,7 +4,7 @@ var PetFriends = require("../data/PetFriends.js");
 
 //GET route with url /api/friends  to display JSON of all possible friends
 router.get("/api/petfriends", function (req, res) {
-  res.json(data);
+  res.json(PetFriends);
 });
 //POST route to /api/friends, post survey results, handle compatibility logic
 router.post("/api/results", function (req, res) {
@@ -16,7 +16,8 @@ router.post("/api/results", function (req, res) {
   // store comparison score
   var currentPetTotal;
   // store userInput score
-  var userInput = req.body
+  var userInput = req.body;
+  console.log(userInput);
   userInput.scores = userInput.scores.map(score => parseInt(score));
 
   //Loop through PetFriends
@@ -29,7 +30,7 @@ router.post("/api/results", function (req, res) {
     }
     //Compare current friend total against best
     if (currentPetTotal <= bestPetTotal) {
-      bestPetFriend = bestPetFriend[j];
+      bestPetFriend = PetFriends[j];
       bestPetTotal = currentPetTotal;
     }
   };
